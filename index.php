@@ -342,29 +342,55 @@
         .post-meta {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            gap: 1.1em;
+            font-size: 0.97rem;
             color: var(--text-secondary);
+            margin-bottom: 1rem;
         }
-
-        .author-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
         .author-avatar {
             width: 32px;
             height: 32px;
             border-radius: 50%;
             object-fit: cover;
+            flex-shrink: 0;
         }
-
+        .author-name {
+            font-weight: 600;
+            margin-right: 0.2em;
+        }
         .post-date {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 0.3em;
+            font-weight: 500;
+        }
+        .post-date i {
+            color: var(--primary-color);
+            font-size: 1em;
+            margin-right: 0.2em;
+        }
+        .separator {
+            color: var(--text-light);
+            font-size: 1.1em;
+        }
+        .reading-time {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 0.97em;
+            font-weight: 400;
+            gap: 0.2em;
+        }
+        .reading-time i {
+            color: var(--text-light);
+            font-size: 1em;
+            margin-right: 0.2em;
+        }
+        @media (max-width: 600px) {
+            .post-meta {
+                flex-wrap: wrap;
+                gap: 0.6em;
+            }
         }
 
         .featured-title {
@@ -906,9 +932,9 @@
                                     <img src="https://images.unsplash.com/photo-1600188768149-f27db3bc6ef9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sarah Johnson" class="author-avatar">
                                     <span>Sarah Johnson</span>
                                 </div>
-                                <div class="post-date">
-                                    <i class="far fa-calendar"></i>
-                                    <span>March 15, 2024</span>
+                                <div class="meta-details">
+                                    <span class="post-date"><i class="far fa-calendar"></i> March 15, 2024</span>
+                                    <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
                                 </div>
                             </div>
                             <h3 class="featured-title">The Ultimate Guide to Hiking the Swiss Alps</h3>
@@ -939,9 +965,9 @@
                                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Mike Chen" class="author-avatar">
                                         <span>Mike Chen</span>
                                     </div>
-                                    <div class="post-date">
-                                        <i class="far fa-calendar"></i>
-                                        <span>March 12, 2024</span>
+                                    <div class="meta-details">
+                                        <span class="post-date"><i class="far fa-calendar"></i> March 12, 2024</span>
+                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
                                     </div>
                                 </div>
                                 <h3 class="post-title">Hidden Beaches of the Maldives</h3>
@@ -966,9 +992,9 @@
                                         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Emma Rodriguez" class="author-avatar">
                                         <span>Emma Rodriguez</span>
                                     </div>
-                                    <div class="post-date">
-                                        <i class="far fa-calendar"></i>
-                                        <span>March 10, 2024</span>
+                                    <div class="meta-details">
+                                        <span class="post-date"><i class="far fa-calendar"></i> March 10, 2024</span>
+                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
                                     </div>
                                 </div>
                                 <h3 class="post-title">Exploring Ancient Temples of Cambodia</h3>
@@ -993,9 +1019,9 @@
                                         <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="David Thompson" class="author-avatar">
                                         <span>David Thompson</span>
                                     </div>
-                                    <div class="post-date">
-                                        <i class="far fa-calendar"></i>
-                                        <span>March 8, 2024</span>
+                                    <div class="meta-details">
+                                        <span class="post-date"><i class="far fa-calendar"></i> March 8, 2024</span>
+                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
                                     </div>
                                 </div>
                                 <h3 class="post-title">Chasing the Northern Lights in Iceland</h3>
@@ -1020,9 +1046,9 @@
                                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Lisa Park" class="author-avatar">
                                         <span>Lisa Park</span>
                                     </div>
-                                    <div class="post-date">
-                                        <i class="far fa-calendar"></i>
-                                        <span>March 5, 2024</span>
+                                    <div class="meta-details">
+                                        <span class="post-date"><i class="far fa-calendar"></i> March 5, 2024</span>
+                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
                                     </div>
                                 </div>
                                 <h3 class="post-title">Street Food Adventures in Bangkok</h3>
@@ -1047,9 +1073,9 @@
                                         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="James Wilson" class="author-avatar">
                                         <span>James Wilson</span>
                                     </div>
-                                    <div class="post-date">
-                                        <i class="far fa-calendar"></i>
-                                        <span>March 3, 2024</span>
+                                    <div class="meta-details">
+                                        <span class="post-date"><i class="far fa-calendar"></i> March 3, 2024</span>
+                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
                                     </div>
                                 </div>
                                 <h3 class="post-title">Safari Adventures in Kenya</h3>
@@ -1074,9 +1100,9 @@
                                         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Yuki Tanaka" class="author-avatar">
                                         <span>Yuki Tanaka</span>
                                     </div>
-                                    <div class="post-date">
-                                        <i class="far fa-calendar"></i>
-                                        <span>March 1, 2024</span>
+                                    <div class="meta-details">
+                                        <span class="post-date"><i class="far fa-calendar"></i> March 1, 2024</span>
+                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
                                     </div>
                                 </div>
                                 <h3 class="post-title">Cherry Blossom Season in Japan</h3>
@@ -1410,15 +1436,22 @@
         document.querySelectorAll('.post-excerpt').forEach(excerpt => {
             const wordCount = excerpt.textContent.split(' ').length;
             const readingTime = Math.ceil(wordCount / 200); // Average reading speed
-            const readingTimeElement = document.createElement('span');
-            readingTimeElement.innerHTML = ` • ${readingTime} min read`;
-            readingTimeElement.style.color = 'var(--text-light)';
-            readingTimeElement.style.fontSize = '0.85rem';
-            
             const postMeta = excerpt.closest('.post-content').querySelector('.post-meta');
-            if (postMeta) {
-                postMeta.appendChild(readingTimeElement);
-            }
+            // Remove any old reading-time and separator
+            const oldRT = postMeta.querySelector('.reading-time');
+            if (oldRT) oldRT.remove();
+            const oldSep = postMeta.querySelector('.separator');
+            if (oldSep) oldSep.remove();
+            // Add separator
+            const sep = document.createElement('span');
+            sep.className = 'separator';
+            sep.innerHTML = '&middot;';
+            postMeta.appendChild(sep);
+            // Add reading time
+            const readingTimeElement = document.createElement('span');
+            readingTimeElement.className = 'reading-time';
+            readingTimeElement.innerHTML = `<i class='far fa-clock'></i> ${readingTime} min read`;
+            postMeta.appendChild(readingTimeElement);
         });
 
         console.log('Wanderlust Chronicles loaded successfully! 🌍✈️');
