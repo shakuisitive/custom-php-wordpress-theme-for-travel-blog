@@ -99,6 +99,7 @@ const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
+
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -107,6 +108,7 @@ const observer = new IntersectionObserver(function(entries) {
         }
     });
 }, observerOptions);
+
 document.querySelectorAll('.post-card, .widget, .featured-post').forEach(el => {
     observer.observe(el);
 });
@@ -120,27 +122,3 @@ document.querySelectorAll('.tag, .category').forEach(element => {
         // In a real app, this would filter the posts
     });
 });
-
-// Add reading time estimation
-document.querySelectorAll('.post-excerpt').forEach(excerpt => {
-    const wordCount = excerpt.textContent.split(' ').length;
-    const readingTime = Math.ceil(wordCount / 200); // Average reading speed
-    const postMeta = excerpt.closest('.post-content').querySelector('.post-meta');
-    // Remove any old reading-time and separator
-    const oldRT = postMeta.querySelector('.reading-time');
-    if (oldRT) oldRT.remove();
-    const oldSep = postMeta.querySelector('.separator');
-    if (oldSep) oldSep.remove();
-    // Add separator
-    const sep = document.createElement('span');
-    sep.className = 'separator';
-    sep.innerHTML = '&middot;';
-    postMeta.appendChild(sep);
-    // Add reading time
-    const readingTimeElement = document.createElement('span');
-    readingTimeElement.className = 'reading-time';
-    readingTimeElement.innerHTML = `<i class='far fa-clock'></i> ${readingTime} min read`;
-    postMeta.appendChild(readingTimeElement);
-});
-
-console.log('Wanderlust Chronicles loaded successfully! 🌍✈️');
