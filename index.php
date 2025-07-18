@@ -48,7 +48,7 @@
         .header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 0.5rem 0; /* Reduced padding */
+            padding: 0.5rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -61,7 +61,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            min-height: 60px; /* Reduce min height */
+            min-height: 60px;
         }
 
         .logo {
@@ -156,7 +156,7 @@
             background: white;
             border-radius: 16px;
             box-shadow: var(--shadow-xl);
-            padding: 40px 32px 32px 32px; /* More padding for comfort */
+            padding: 40px 32px 32px 32px;
             opacity: 0;
             visibility: hidden;
             z-index: 1001;
@@ -164,13 +164,16 @@
             max-height: calc(80vh - 40px);
             overflow-y: auto;
         }
+
         .search-box.active {
             opacity: 1;
             visibility: visible;
         }
+
         .search-box::before {
             display: none;
         }
+
         .search-toggle {
             z-index: 1002;
         }
@@ -339,57 +342,84 @@
             padding: 2rem;
         }
 
+        /* IMPROVED POST META STYLING */
         .post-meta {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 1.1em;
-            font-size: 0.97rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
         }
-        .author-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             flex-shrink: 0;
         }
+
+        .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
         .author-name {
             font-weight: 600;
-            margin-right: 0.2em;
+            color: var(--text-primary);
+            font-size: 0.95rem;
         }
+
+        .meta-details {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
         .post-date {
             display: flex;
             align-items: center;
-            gap: 0.3em;
+            gap: 6px;
+            color: var(--text-secondary);
             font-weight: 500;
         }
+
         .post-date i {
-            color: var(--primary-color);
-            font-size: 1em;
-            margin-right: 0.2em;
+            font-size: 0.85rem;
+            opacity: 0.8;
         }
+
+        .reading-time {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
         .separator {
             color: var(--text-light);
-            font-size: 1.1em;
+            font-weight: bold;
+            opacity: 0.6;
         }
-        .reading-time {
-            display: flex;
-            align-items: center;
-            color: var(--text-light);
-            font-size: 0.97em;
-            font-weight: 400;
-            gap: 0.2em;
-        }
-        .reading-time i {
-            color: var(--text-light);
-            font-size: 1em;
-            margin-right: 0.2em;
-        }
+
+        /* Mobile responsive for post meta */
         @media (max-width: 600px) {
             .post-meta {
-                flex-wrap: wrap;
-                gap: 0.6em;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+                padding-bottom: 1rem;
+            }
+            
+            .meta-details {
+                gap: 8px;
+                font-size: 0.85rem;
             }
         }
 
@@ -581,8 +611,8 @@
         }
 
         .popular-post-image {
-            width: 70px; /* Increased from 60px */
-            height: 70px; /* Increased from 60px */
+            width: 70px;
+            height: 70px;
             border-radius: 10px;
             object-fit: cover;
             display: block;
@@ -854,6 +884,7 @@
             transform: none;
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
+
         /* Only hide for animation if JS runs */
         body.js-animate .post-card,
         body.js-animate .widget,
@@ -930,11 +961,14 @@
                             <div class="post-meta">
                                 <div class="author-info">
                                     <img src="https://images.unsplash.com/photo-1600188768149-f27db3bc6ef9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sarah Johnson" class="author-avatar">
-                                    <span>Sarah Johnson</span>
+                                    <span class="author-name">Sarah Johnson</span>
                                 </div>
                                 <div class="meta-details">
-                                    <span class="post-date"><i class="far fa-calendar"></i> March 15, 2024</span>
-                                    <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
+                                    <span class="post-date">
+                                        <i class="far fa-calendar"></i>
+                                        March 15, 2024
+                                    </span>
+                           
                                 </div>
                             </div>
                             <h3 class="featured-title">The Ultimate Guide to Hiking the Swiss Alps</h3>
@@ -963,13 +997,19 @@
                                 <div class="post-meta">
                                     <div class="author-info">
                                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Mike Chen" class="author-avatar">
-                                        <span>Mike Chen</span>
+                                        <span class="author-name">Mike Chen</span>
                                     </div>
                                     <div class="meta-details">
-                                        <span class="post-date"><i class="far fa-calendar"></i> March 12, 2024</span>
-                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
+                                        <span class="post-date">
+                                            <i class="far fa-calendar"></i>
+                                            March 12, 2024
+                                        </span>
+                                       
                                     </div>
+
+                                   
                                 </div>
+                     
                                 <h3 class="post-title">Hidden Beaches of the Maldives</h3>
                                 <p class="post-excerpt">Discover secluded paradise islands where crystal-clear waters meet pristine white sand beaches. These hidden gems offer the perfect escape from crowded tourist spots.</p>
                                 <div class="post-categories">
@@ -990,11 +1030,14 @@
                                 <div class="post-meta">
                                     <div class="author-info">
                                         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Emma Rodriguez" class="author-avatar">
-                                        <span>Emma Rodriguez</span>
+                                        <span class="author-name">Emma Rodriguez</span>
                                     </div>
                                     <div class="meta-details">
-                                        <span class="post-date"><i class="far fa-calendar"></i> March 10, 2024</span>
-                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
+                                        <span class="post-date">
+                                            <i class="far fa-calendar"></i>
+                                            March 10, 2024
+                                        </span>
+                                  
                                     </div>
                                 </div>
                                 <h3 class="post-title">Exploring Ancient Temples of Cambodia</h3>
@@ -1017,11 +1060,14 @@
                                 <div class="post-meta">
                                     <div class="author-info">
                                         <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="David Thompson" class="author-avatar">
-                                        <span>David Thompson</span>
+                                        <span class="author-name">David Thompson</span>
                                     </div>
                                     <div class="meta-details">
-                                        <span class="post-date"><i class="far fa-calendar"></i> March 8, 2024</span>
-                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
+                                        <span class="post-date">
+                                            <i class="far fa-calendar"></i>
+                                            March 8, 2024
+                                        </span>
+                        
                                     </div>
                                 </div>
                                 <h3 class="post-title">Chasing the Northern Lights in Iceland</h3>
@@ -1044,11 +1090,14 @@
                                 <div class="post-meta">
                                     <div class="author-info">
                                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Lisa Park" class="author-avatar">
-                                        <span>Lisa Park</span>
+                                        <span class="author-name">Lisa Park</span>
                                     </div>
                                     <div class="meta-details">
-                                        <span class="post-date"><i class="far fa-calendar"></i> March 5, 2024</span>
-                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
+                                        <span class="post-date">
+                                            <i class="far fa-calendar"></i>
+                                            March 5, 2024
+                                        </span>
+                             
                                     </div>
                                 </div>
                                 <h3 class="post-title">Street Food Adventures in Bangkok</h3>
@@ -1071,11 +1120,14 @@
                                 <div class="post-meta">
                                     <div class="author-info">
                                         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="James Wilson" class="author-avatar">
-                                        <span>James Wilson</span>
+                                        <span class="author-name">James Wilson</span>
                                     </div>
                                     <div class="meta-details">
-                                        <span class="post-date"><i class="far fa-calendar"></i> March 3, 2024</span>
-                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
+                                        <span class="post-date">
+                                            <i class="far fa-calendar"></i>
+                                            March 3, 2024
+                                        </span>
+                            
                                     </div>
                                 </div>
                                 <h3 class="post-title">Safari Adventures in Kenya</h3>
@@ -1085,8 +1137,8 @@
                                     <a href="#" class="category">Safari</a>
                                 </div>
                                 <div class="post-tags">
-                                    <a href="#" class="tag">Kenya</a>
-                                    <a href="#" class="tag">Wildlife</a>
+                                    <a href="#" tag">Kenya</a>
+                                    <a href="#" tag">Wildlife</a>
                                     <a href="#" class="tag">Photography</a>
                                 </div>
                             </div>
@@ -1098,11 +1150,14 @@
                                 <div class="post-meta">
                                     <div class="author-info">
                                         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Yuki Tanaka" class="author-avatar">
-                                        <span>Yuki Tanaka</span>
+                                        <span class="author-name">Yuki Tanaka</span>
                                     </div>
                                     <div class="meta-details">
-                                        <span class="post-date"><i class="far fa-calendar"></i> March 1, 2024</span>
-                                        <span class="reading-time"><i class="far fa-clock"></i> 1 min read</span>
+                                        <span class="post-date">
+                                            <i class="far fa-calendar"></i>
+                                            March 1, 2024
+                                        </span>
+                                 
                                     </div>
                                 </div>
                                 <h3 class="post-title">Cherry Blossom Season in Japan</h3>
@@ -1168,9 +1223,7 @@
                             </div>
                         </li>
                         <li class="popular-post">
-                            <img src="
-                            https://plus.unsplash.com/premium_photo-1673415819362-c2ca640bfafe?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-                            " alt="Morocco" class="popular-post-image" loading="lazy">
+                            <img src="https://plus.unsplash.com/premium_photo-1673415819362-c2ca640bfafe?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Morocco" class="popular-post-image" loading="lazy">
                             <div class="popular-post-content">
                                 <h4>Marrakech, Morocco</h4>
                                 <p>Vibrant souks and ancient architecture</p>
@@ -1410,6 +1463,7 @@
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
+
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1418,6 +1472,7 @@
                 }
             });
         }, observerOptions);
+
         document.querySelectorAll('.post-card, .widget, .featured-post').forEach(el => {
             observer.observe(el);
         });
@@ -1430,28 +1485,6 @@
                 console.log(`Filtering by: ${term}`);
                 // In a real app, this would filter the posts
             });
-        });
-
-        // Add reading time estimation
-        document.querySelectorAll('.post-excerpt').forEach(excerpt => {
-            const wordCount = excerpt.textContent.split(' ').length;
-            const readingTime = Math.ceil(wordCount / 200); // Average reading speed
-            const postMeta = excerpt.closest('.post-content').querySelector('.post-meta');
-            // Remove any old reading-time and separator
-            const oldRT = postMeta.querySelector('.reading-time');
-            if (oldRT) oldRT.remove();
-            const oldSep = postMeta.querySelector('.separator');
-            if (oldSep) oldSep.remove();
-            // Add separator
-            const sep = document.createElement('span');
-            sep.className = 'separator';
-            sep.innerHTML = '&middot;';
-            postMeta.appendChild(sep);
-            // Add reading time
-            const readingTimeElement = document.createElement('span');
-            readingTimeElement.className = 'reading-time';
-            readingTimeElement.innerHTML = `<i class='far fa-clock'></i> ${readingTime} min read`;
-            postMeta.appendChild(readingTimeElement);
         });
 
         console.log('Wanderlust Chronicles loaded successfully! 🌍✈️');
