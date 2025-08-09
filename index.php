@@ -5,7 +5,7 @@
         <div class="main-layout">
             <main class="main-content">
                 <!-- Featured Post -->
-                <section class="featured-section">
+                <!-- <section class="featured-section">
                     <h2 class="section-title">Featured Adventure</h2>
                     <article class="featured-post">
                         <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" alt="Swiss Alps" class="featured-image">
@@ -37,105 +37,42 @@
                             </a>
                         </div>
                     </article>
-                </section>
+                </section> -->
 
                 <!-- Blog Posts -->
                 <section class="blog-posts" id="blog">
                     <h2 class="section-title">Latest Adventures</h2>
                     <div class="posts-grid">
-                        <article class="post-card">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=220&q=80" alt="Tropical Paradise" class="post-image" loading="lazy">
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <div class="author-info">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Mike Chen" class="author-avatar">
-                                        <span class="author-name">Mike Chen</span>
-                                    </div>
-                                    <div class="meta-details">
-                                        <span class="post-date">
-                                            <i class="far fa-calendar"></i>
-                                            March 12, 2024
-                                        </span>
-                                       
-                                    </div>
 
-                                   
-                                </div>
-                     
-                                <h3 class="post-title">Hidden Beaches of the Maldives</h3>
-                                <p class="post-excerpt">Discover secluded paradise islands where crystal-clear waters meet pristine white sand beaches. These hidden gems offer the perfect escape from crowded tourist spots.</p>
-                                <div class="post-categories">
-                                    <a href="#" class="category">Beach</a>
-                                    <a href="#" class="category">Maldives</a>
-                                </div>
-                                <div class="post-tags">
-                                    <a href="#" class="tag">Tropical</a>
-                                    <a href="#" class="tag">Paradise</a>
-                                    <a href="#" class="tag">Luxury</a>
-                                </div>
-                            </div>
-                        </article>
+            <?php
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 7,
+            );
+            $query = new WP_Query($args);
 
-                        <article class="post-card">
-                            <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=220&q=80" alt="Temple Adventure" class="post-image" loading="lazy">
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <div class="author-info">
-                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Emma Rodriguez" class="author-avatar">
-                                        <span class="author-name">Emma Rodriguez</span>
-                                    </div>
-                                    <div class="meta-details">
-                                        <span class="post-date">
-                                            <i class="far fa-calendar"></i>
-                                            March 10, 2024
-                                        </span>
-                                  
-                                    </div>
-                                </div>
-                                <h3 class="post-title">Exploring Ancient Temples of Cambodia</h3>
-                                <p class="post-excerpt">Journey through time as we explore the magnificent temples of Angkor Wat and discover the rich history and culture of ancient Khmer civilization.</p>
-                                <div class="post-categories">
-                                    <a href="#" class="category">Culture</a>
-                                    <a href="#" class="category">History</a>
-                                </div>
-                                <div class="post-tags">
-                                    <a href="#" class="tag">Cambodia</a>
-                                    <a href="#" class="tag">Temples</a>
-                                    <a href="#" class="tag">Heritage</a>
-                                </div>
-                            </div>
-                        </article>
+                if($query->have_posts()){
+                    while($query->have_posts()){
+                        $query->the_post();
+                        ?>
+        <div>
+            <h2><?php the_title(); ?></h2>
+            <p><?php the_excerpt(); ?></p>
+            <a href="<?php the_permalink(); ?>">Read More</a>
+                    </div>
+<?php
+                    }
+                }
+            ?>
+                    
+<?php
+wp_reset_postdata();
+?>
 
-                        <article class="post-card">
-                            <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=220&q=80" alt="Northern Lights" class="post-image" loading="lazy">
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <div class="author-info">
-                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="David Thompson" class="author-avatar">
-                                        <span class="author-name">David Thompson</span>
-                                    </div>
-                                    <div class="meta-details">
-                                        <span class="post-date">
-                                            <i class="far fa-calendar"></i>
-                                            March 8, 2024
-                                        </span>
-                        
-                                    </div>
-                                </div>
-                                <h3 class="post-title">Chasing the Northern Lights in Iceland</h3>
-                                <p class="post-excerpt">Experience the magic of Aurora Borealis dancing across the Icelandic sky. Learn the best locations, timing, and photography tips for this natural wonder.</p>
-                                <div class="post-categories">
-                                    <a href="#" class="category">Photography</a>
-                                    <a href="#" class="category">Nature</a>
-                                </div>
-                                <div class="post-tags">
-                                    <a href="#" class="tag">Iceland</a>
-                                    <a href="#" class="tag">Aurora</a>
-                                    <a href="#" class="tag">Winter</a>
-                                </div>
-                            </div>
-                        </article>
 
+
+       
+<!-- 
                         <article class="post-card">
                             <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=220&q=80" alt="Street Food" class="post-image" loading="lazy">
                             <div class="post-content">
@@ -224,10 +161,23 @@
                                     <a href="#" class="tag">Spring</a>
                                 </div>
                             </div>
-                        </article>
+                        </article> -->
                     </div>
-                </section>
 
+                </section>
+                <div class="wrapper_for_pagination">
+<?php  
+echo paginate_links(
+    array(
+        'total' => $query->max_num_pages,
+        'prev_text'          => __( 'Prev' ),
+        'next_text'          => __( 'Next' ),
+
+    )
+);
+?>
+
+</div> 
                 <!-- Newsletter -->
                 <section class="newsletter">
                     <div class="container">

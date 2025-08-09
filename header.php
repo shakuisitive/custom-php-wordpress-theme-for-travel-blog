@@ -15,7 +15,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">
+                <a href=<?php bloginfo ("url") ?> class="logo">
                     <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=70&h=70&q=80" alt="Wanderlust Chronicles Logo" class="logo-image" loading="lazy">
                     <span style="font-size:1.3rem; font-weight:700; letter-spacing:0.5px; text-shadow:0 1px 4px rgba(0,0,0,0.08); white-space:nowrap;">Wanderlust Chronicles</span>
                 </a>
@@ -53,10 +53,10 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- <section class="hero" id="home">
         <div class="hero-content">
             <h1>Discover the World</h1>
             <p>Join us on extraordinary journeys to breathtaking destinations around the globe. From hidden gems to iconic landmarks, we share stories that inspire wanderlust.</p>
             <a href="#blog" class="cta-button">Start Exploring</a>
         </div>
-    </section>
+    </section> -->
