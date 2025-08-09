@@ -32,11 +32,11 @@ document.querySelectorAll(".search-suggestion").forEach((suggestion) => {
 
 // Search form submission
 document.querySelector(".search-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+  // e.preventDefault();
   const searchTerm = this.querySelector(".search-input").value.trim();
   if (searchTerm) {
-    console.log("Searching for:", searchTerm);
-    alert(`Searching for "${searchTerm}"... (This is a demo)`);
+    // console.log("Searching for:", searchTerm);
+    // alert(`Searching for "${searchTerm}"... (This is a demo)`);
     searchBox.classList.remove("active");
     searchOverlay.classList.remove("active");
   }

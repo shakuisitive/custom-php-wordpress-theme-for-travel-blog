@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wanderlust Chronicles - Travel Blog</title>
-    <?php wp_head(); ?>
+    <?php wp_head();
+    ?>
 
 </head>
 <body>
@@ -27,27 +28,7 @@
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
                 </nav>
-                <div class="search-container">
-                    <div class="search-toggle" id="searchToggle">
-                        <i class="fas fa-search"></i>
-                        <span>Search</span>
-                    </div>
-                    <div class="search-box" id="searchBox">
-                        <form class="search-form">
-                            <input type="text" class="search-input" placeholder="Search destinations, guides, tips...">
-                            <button type="submit" class="search-button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form>
-                        <div class="search-suggestions">
-                            <span class="search-suggestion">Bali</span>
-                            <span class="search-suggestion">Switzerland</span>
-                            <span class="search-suggestion">Japan</span>
-                            <span class="search-suggestion">Photography</span>
-                            <span class="search-suggestion">Budget Travel</span>
-                        </div>
-                    </div>
-                </div>
+                <?php get_search_form(); ?>
             </div>
         </div>
     </header>

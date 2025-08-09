@@ -44,25 +44,28 @@ get_search_form();
 
                 <!-- Blog Posts -->
                 <section class="blog-posts" id="blog">
-                    <h2 class="section-title">Latest Adventures</h2>
+                    <h2 class="section-title">Search results for the query "<?php echo get_search_query(); ?>"</h2>
                     <div class="posts-grid">
 
             <?php
-            $args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 7,
-            );
-            $query = new WP_Query($args);
 
-                if($query->have_posts()){
-                    while($query->have_posts()){
-                        $query->the_post();
+                if(have_posts()){
+                    while(have_posts()){
+                        the_post();
                         ?>
+<?php
+
+if(get_post_type() === "post"){
+    ?>
         <div>
             <h2><?php the_title(); ?></h2>
             <p><?php the_excerpt(); ?></p>
             <a href="<?php the_permalink(); ?>">Read More</a>
                     </div>
+    <?php
+}
+
+?>
 <?php
                     }
                 }
@@ -172,7 +175,6 @@ wp_reset_postdata();
 <?php  
 echo paginate_links(
     array(
-        'total' => $query->max_num_pages,
         'prev_text'          => __( 'Prev' ),
         'next_text'          => __( 'Next' ),
 
