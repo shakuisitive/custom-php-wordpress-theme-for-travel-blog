@@ -1,5 +1,4 @@
 <?php get_header();
-
 get_search_form();
 ?>
 
@@ -20,9 +19,9 @@ get_search_form();
             );
             $query = new WP_Query($args);
 
-                if($query->have_posts()){
-                    while($query->have_posts()){
-                        $query->the_post();
+                if(have_posts()){
+                    while(have_posts()){
+                        the_post();
                         ?>
         <div>
             <h2><?php the_title(); ?></h2>
