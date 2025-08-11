@@ -7,41 +7,6 @@ get_search_form();
     <div class="container">
         <div class="main-layout">
             <main class="main-content">
-                <!-- Featured Post -->
-                <!-- <section class="featured-section">
-                    <h2 class="section-title">Featured Adventure</h2>
-                    <article class="featured-post">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" alt="Swiss Alps" class="featured-image">
-                        <div class="featured-content">
-                            <div class="post-meta">
-                                <div class="author-info">
-                                    <img src="https://images.unsplash.com/photo-1600188768149-f27db3bc6ef9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sarah Johnson" class="author-avatar">
-                                    <span class="author-name">Sarah Johnson</span>
-                                </div>
-                                <div class="meta-details">
-                                    <span class="post-date">
-                                        <i class="far fa-calendar"></i>
-                                        March 15, 2024
-                                    </span>
-                           
-                                </div>
-                            </div>
-                            <h3 class="featured-title">The Ultimate Guide to Hiking the Swiss Alps</h3>
-                            <p class="featured-excerpt">Embark on a breathtaking journey through the majestic Swiss Alps, where snow-capped peaks meet pristine alpine lakes. This comprehensive guide covers everything from the best hiking trails to essential gear, local customs, and hidden mountain huts that offer authentic Swiss hospitality.</p>
-                            <div class="post-tags">
-                                <a href="#" class="tag">Switzerland</a>
-                                <a href="#" class="tag">Hiking</a>
-                                <a href="#" class="tag">Alps</a>
-                                <a href="#" class="tag">Adventure</a>
-                            </div>
-                            <a href="#" class="read-more">
-                                Read Full Story
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                </section> -->
-
                 <!-- Blog Posts -->
                 <section class="blog-posts" id="blog">
                     <h2 class="section-title">Latest Adventures</h2>
@@ -51,6 +16,7 @@ get_search_form();
             $args = array(
                 'post_type' => 'post',
                 'posts_per_page' => 7,
+                'paged' =>  max(1, get_query_var('paged'))
             );
             $query = new WP_Query($args);
 
@@ -71,117 +37,24 @@ get_search_form();
 <?php
 wp_reset_postdata();
 ?>
-
-
-
-       
-<!-- 
-                        <article class="post-card">
-                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=220&q=80" alt="Street Food" class="post-image" loading="lazy">
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <div class="author-info">
-                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Lisa Park" class="author-avatar">
-                                        <span class="author-name">Lisa Park</span>
-                                    </div>
-                                    <div class="meta-details">
-                                        <span class="post-date">
-                                            <i class="far fa-calendar"></i>
-                                            March 5, 2024
-                                        </span>
-                             
-                                    </div>
-                                </div>
-                                <h3 class="post-title">Street Food Adventures in Bangkok</h3>
-                                <p class="post-excerpt">Dive into the vibrant street food scene of Bangkok, where every corner offers a new culinary adventure. From pad thai to mango sticky rice, taste the authentic flavors.</p>
-                                <div class="post-categories">
-                                    <a href="#" class="category">Food</a>
-                                    <a href="#" class="category">Culture</a>
-                                </div>
-                                <div class="post-tags">
-                                    <a href="#" class="tag">Thailand</a>
-                                    <a href="#" class="tag">Street Food</a>
-                                    <a href="#" class="tag">Culinary</a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="post-card">
-                            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=220&q=80" alt="Safari Adventure" class="post-image" loading="lazy">
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <div class="author-info">
-                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="James Wilson" class="author-avatar">
-                                        <span class="author-name">James Wilson</span>
-                                    </div>
-                                    <div class="meta-details">
-                                        <span class="post-date">
-                                            <i class="far fa-calendar"></i>
-                                            March 3, 2024
-                                        </span>
-                            
-                                    </div>
-                                </div>
-                                <h3 class="post-title">Safari Adventures in Kenya</h3>
-                                <p class="post-excerpt">Witness the incredible wildlife of the Maasai Mara, from the Great Migration to the Big Five. An unforgettable journey into the heart of Africa's wilderness.</p>
-                                <div class="post-categories">
-                                    <a href="#" class="category">Wildlife</a>
-                                    <a href="#" class="category">Safari</a>
-                                </div>
-                                <div class="post-tags">
-                                    <a href="#" class="tag">Kenya</a>
-                                    <a href="#" class="tag">Wildlife</a>
-                                    <a href="#" class="tag">Photography</a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="post-card">
-                            <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=220&q=80" alt="Cherry Blossoms" class="post-image" loading="lazy">
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <div class="author-info">
-                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Yuki Tanaka" class="author-avatar">
-                                        <span class="author-name">Yuki Tanaka</span>
-                                    </div>
-                                    <div class="meta-details">
-                                        <span class="post-date">
-                                            <i class="far fa-calendar"></i>
-                                            March 1, 2024
-                                        </span>
-                                 
-                                    </div>
-                                </div>
-                                <h3 class="post-title">Cherry Blossom Season in Japan</h3>
-                                <p class="post-excerpt">Experience the ethereal beauty of sakura season in Japan. From Tokyo's bustling parks to Kyoto's serene temples, discover the best spots for hanami.</p>
-                                <div class="post-categories">
-                                    <a href="#" class="category">Culture</a>
-                                    <a href="#" class="category">Nature</a>
-                                </div>
-                                <div class="post-tags">
-                                    <a href="#" class="tag">Japan</a>
-                                    <a href="#" class="tag">Sakura</a>
-                                    <a href="#" class="tag">Spring</a>
-                                </div>
-                            </div>
-                        </article> -->
                     </div>
 
                 </section>
                 <div class="wrapper_for_pagination">
 <?php  
+
+
 echo paginate_links(
     array(
-        'total' => $query->max_num_pages,
-        'prev_text'          => __( 'Prev' ),
-        'next_text'          => __( 'Next' ),
-
-    )
-);
+        'prev_text'          => "Previous",
+        'next_text'          => "Next",
+        )
+        );
 ?>
-
-</div> 
-                <!-- Newsletter -->
+        
+        
+    </div> 
+    <!-- Newsletter -->
                 <section class="newsletter">
                     <div class="container">
                         <h3>Never Miss an Adventure</h3>
