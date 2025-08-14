@@ -23,10 +23,11 @@
         <!-- Post Content -->
         <div class="post-content">
             <?php the_content(); ?>
+            <?php  wp_link_pages(); ?>
+
         </div>
         
         <!-- Post Footer -->
-  
     </article>
     
     <?php endwhile; endif; ?>

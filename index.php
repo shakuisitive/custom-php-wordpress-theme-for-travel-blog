@@ -14,7 +14,6 @@ get_search_form();
             <?php
             $args = array(
                 'post_type' => 'post',
-                'posts_per_page' => 7,
                 'paged' =>  max(1, get_query_var('paged'))
             );
             $query = new WP_Query($args);
@@ -23,11 +22,38 @@ get_search_form();
                     while(have_posts()){
                         the_post();
                         ?>
-        <div>
-            <h2><?php the_title(); ?></h2>
-            <p><?php the_excerpt(); ?></p>
-            <a href="<?php the_permalink(); ?>">Read More</a>
-                    </div>
+   <div class="article-card">
+    <h2 class="article-title">
+        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+    </h2>
+
+    <div class="article-meta">
+        <span class="meta-item">
+            <i class="fas fa-user"></i>
+            <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+                <?php the_author(); ?>
+            </a>
+        </span>
+        <span class="meta-item">
+            <i class="fas fa-calendar-alt"></i>
+            <?php echo get_the_date(); ?>
+        </span>
+        <span class="meta-item">
+            <i class="fas fa-folder-open"></i>
+            <?php the_category(', '); ?>
+        </span>
+        <?php if (get_the_tags()) : ?>
+        <span class="meta-item">
+            <i class="fas fa-tags"></i>
+            <?php the_tags('', ', '); ?>
+        </span>
+        <?php endif; ?>
+    </div>
+
+    <p class="article-excerpt"><?php the_excerpt(); ?></p>
+    <a class="read-more" href="<?php the_permalink(); ?>">Read More</a>
+</div>
+
 <?php
                     }
                 }
